@@ -3,6 +3,7 @@ package com.desafio.backEnd.controller.form;
 import com.desafio.backEnd.modelo.Cliente;
 import com.desafio.backEnd.modelo.Nota;
 import com.desafio.backEnd.repository.ClienteRepository;
+import com.desafio.backEnd.repository.NotaRepository;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import javax.persistence.Temporal;
@@ -15,7 +16,7 @@ public class NotaForm {
 
     @NotNull
     @Temporal(TemporalType.DATE)
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy", locale = "pt-BR", timezone = "Brazil/East")
+    //@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy", locale = "pt-BR", timezone = "Brazil/East")
     private Date dataCompra;
     @NotNull
     private Integer numero;
@@ -52,6 +53,5 @@ public class NotaForm {
         Cliente cliente = clienteRepository.getByNome(nomeCliente);
         return new Nota(numero, dataCompra, cliente);
     }
-
 
 }

@@ -19,6 +19,7 @@ import java.io.FileNotFoundException;
 import java.net.URI;
 import java.util.List;
 
+@CrossOrigin
 @RestController
 @RequestMapping(value = "/nota")
 public class NotaController {
@@ -61,7 +62,6 @@ public class NotaController {
     @Transactional
     public ResponseEntity<NotaDto> atualizar(@PathVariable Integer id, @RequestBody AtulizacaoNotaForm form) {
         Nota nota = form.atualizar(id, notaRepository, clienteRepository);
-
         return ResponseEntity.ok(new NotaDto(nota));
     }
 

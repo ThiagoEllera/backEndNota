@@ -31,8 +31,8 @@ public class ClienteForm {
     public Cliente atualizar(Integer id, ClienteRepository clienteRepository) {
         Cliente cliente = clienteRepository.getById(id);
 
-        cliente.setCodigo(this.codigo);
-        cliente.setNome(this.nome);
+        cliente.setCodigo((this.codigo != null) ? this.codigo : cliente.getCodigo());
+        cliente.setNome((this.nome != null) ? this.nome : cliente.getNome());
         return cliente;
     }
 }

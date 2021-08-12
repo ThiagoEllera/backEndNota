@@ -13,7 +13,7 @@ public class AtulizacaoNotaForm {
 
     private Integer id;
     @Temporal(TemporalType.DATE)
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy", locale = "pt-BR", timezone = "Brazil/East")
+    //@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy", locale = "pt-BR", timezone = "Brazil/East")
     private Date dataCompra;
     private Integer numero;
     private String nomeCliente;
@@ -37,9 +37,9 @@ public class AtulizacaoNotaForm {
     public Nota atualizar(Integer id, NotaRepository notaRepository, ClienteRepository clienteRepository) {
         Nota nota = notaRepository.getById(id);
 
-        nota.setNumero(this.numero);
-        nota.setDataCompra(this.dataCompra);
-        nota.setCliente(clienteRepository.getByNome(nomeCliente));
+        nota.setNumero((this.numero != null) ? this.numero : nota.getNumero());
+        nota.setDataCompra((this.dataCompra != null) ? this.dataCompra : nota.getDataCompra());
+        nota.setCliente(clienteRepository.getByNome((nomeCliente != null) ? nomeCliente:nota.getCliente().getNome()));
 
         return nota;
 

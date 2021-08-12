@@ -13,14 +13,13 @@ import java.math.BigDecimal;
 
 public class NotaItemForm {
 
-    @NotNull(message = "Numero não pode ser nulo")
+
     private Integer numero;
-    @NotNull
+
     private BigDecimal quantidade;
-    @NotNull
+
     private Integer numeroNota;
-    @NotNull
-    @NotEmpty
+
     private String nomeProduto;
 
 

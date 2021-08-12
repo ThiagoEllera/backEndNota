@@ -51,10 +51,10 @@ public class AtulizacaoNotaItemForm {
         NotaItem notaItem = notaItemRepository.getById(id);
 
 
-        notaItem.setNumero(this.numero);
-        notaItem.setQuantidade(this.quantidade);
-        notaItem.setNota(notaRepository.getByNumero(numeroNota));
-        notaItem.setProduto(produtoRepository.getByDescricao(nomeProduto));
+        notaItem.setNumero((this.numero != null) ? this.numero : notaItem.getNumero());
+        notaItem.setQuantidade((this.quantidade != null) ? this.quantidade : notaItem.getQuantidade()) ;
+        notaItem.setNota(notaRepository.getByNumero((numeroNota != null) ? numeroNota:notaItem.getNota().getNumero()));
+        notaItem.setProduto(produtoRepository.getByDescricao((nomeProduto != null) ? nomeProduto:notaItem.getProduto().getDescricao()));
 
         return notaItem;
 

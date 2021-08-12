@@ -14,15 +14,15 @@ public class Nota {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Temporal(TemporalType.DATE)
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy", locale = "pt-BR", timezone = "Brazil/East")
+    //@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy", locale = "pt-BR", timezone = "Brazil/East")
     private Date dataCompra;
     private Integer numero;
 
     @ManyToOne
     private Cliente cliente;
 
-    @OneToMany(mappedBy = "nota", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<NotaItem> notaItem = new ArrayList<>();
+    //@OneToMany(mappedBy = "nota", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    //private List<NotaItem> notaItem = new ArrayList<>();
     ;
 
     public Nota() {
@@ -55,25 +55,23 @@ public class Nota {
         return id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
     public Cliente getCliente() {
         return cliente;
     }
+
+
 
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
 
-    public List<NotaItem> getNotaItem() {
-        return notaItem;
-    }
+    //public List<NotaItem> getNotaItem() {
+   //     return notaItem;
+  //  }
 
-    public void setNotaItem(List<NotaItem> notaItem) {
-        this.notaItem = notaItem;
-    }
+   // public void setNotaItem(List<NotaItem> notaItem) {
+   //     this.notaItem = notaItem;
+   // }
 
 
 }
